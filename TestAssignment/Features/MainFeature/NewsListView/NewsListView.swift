@@ -9,7 +9,7 @@ import SwiftUI
 import Dependencies
 
 struct NewsListView: View {
-    let viewModel: NewsListViewModel
+    @Bindable var viewModel: NewsListViewModel
     
     var body: some View {
         ScrollView {
@@ -26,6 +26,11 @@ struct NewsListView: View {
             .padding(.vertical)
         }
         .navigationTitle("News")
+        .searchable(
+            text: $viewModel.searchText,
+            placement: .navigationBarDrawer(displayMode: .automatic),
+            prompt: "Search news"
+        )
     }
 }
 

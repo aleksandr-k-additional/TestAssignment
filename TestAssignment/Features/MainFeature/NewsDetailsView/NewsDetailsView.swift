@@ -20,7 +20,7 @@ struct NewsDetailsView: View {
                 }
 
                 VStack(alignment: .leading, spacing: 8) {
-                    Text(viewModel.article.title ?? "No title")
+                    Text(viewModel.article.title)
                         .font(.title)
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
@@ -56,7 +56,7 @@ struct NewsDetailsView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(viewModel.article.title ?? "")
+        .navigationTitle(viewModel.article.title)
     }
 }
 

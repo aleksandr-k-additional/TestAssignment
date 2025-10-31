@@ -16,10 +16,16 @@ class NewsListViewModel {
     @ObservationIgnored
     @Dependency(\.newsClient) private var newsClient
     
+    var searchText: String = ""
     var container: NewsContainer?
     
     var articles: [Article] {
-        container?.articles ?? []
+        (container?.articles ?? []).filter {
+            searchText.isEmpty ||
+            $0.title.lowercased().contains(searchText.lowercased()) ||
+            ($0.description?.lowercased().contains(searchText.lowercased()) ?? false) ||
+            ($0.author?.lowercased().contains(searchText.lowercased()) ?? false)
+        }
     }
     
     init() {

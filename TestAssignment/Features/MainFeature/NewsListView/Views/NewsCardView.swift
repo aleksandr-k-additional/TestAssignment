@@ -16,7 +16,7 @@ struct NewsCardView: View {
                 AppImageView(url: url)
             }
             
-            Text(article.title ?? "No title")
+            Text(article.title)
                 .font(.headline)
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
