@@ -9,7 +9,6 @@
 import Foundation
 import Alamofire
 
-@MainActor
 public final class ApiManager {
     private let urlProvider: URLProvider
     private let configuration: URLSessionConfiguration
